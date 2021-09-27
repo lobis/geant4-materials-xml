@@ -1414,13 +1414,15 @@
   <material name="G4_H" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="19.200000"/>
-    <D unit="g/cm3" value="0.000084"/>
+    <D unit="kg/m3" value="0.083748"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="H"/>
   </material>
   <material name="G4_He" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="41.800000"/>
-    <D unit="g/cm3" value="0.000166"/>
+    <D unit="kg/m3" value="0.166322"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="He"/>
   </material>
   <material name="G4_Li" state="solid">
@@ -1450,25 +1452,29 @@
   <material name="G4_N" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="82.000000"/>
-    <D unit="g/cm3" value="0.001165"/>
+    <D unit="kg/m3" value="1.165200"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="N"/>
   </material>
   <material name="G4_O" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="95.000000"/>
-    <D unit="g/cm3" value="0.001332"/>
+    <D unit="kg/m3" value="1.331510"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="O"/>
   </material>
   <material name="G4_F" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="115.000000"/>
-    <D unit="g/cm3" value="0.001580"/>
+    <D unit="kg/m3" value="1.580290"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="F"/>
   </material>
   <material name="G4_Ne" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="137.000000"/>
-    <D unit="g/cm3" value="0.000839"/>
+    <D unit="kg/m3" value="0.838505"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Ne"/>
   </material>
   <material name="G4_Na" state="solid">
@@ -1510,13 +1516,15 @@
   <material name="G4_Cl" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="174.000000"/>
-    <D unit="g/cm3" value="0.002995"/>
+    <D unit="kg/m3" value="2.994730"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Cl"/>
   </material>
   <material name="G4_Ar" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="188.000000"/>
-    <D unit="g/cm3" value="0.001662"/>
+    <D unit="kg/m3" value="1.662010"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Ar"/>
   </material>
   <material name="G4_K" state="solid">
@@ -1618,13 +1626,15 @@
   <material name="G4_Br" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="343.000000"/>
-    <D unit="g/cm3" value="0.007072"/>
+    <D unit="kg/m3" value="7.072100"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Br"/>
   </material>
   <material name="G4_Kr" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="352.000000"/>
-    <D unit="g/cm3" value="0.003478"/>
+    <D unit="kg/m3" value="3.478320"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Kr"/>
   </material>
   <material name="G4_Rb" state="solid">
@@ -1732,7 +1742,8 @@
   <material name="G4_Xe" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="482.000000"/>
-    <D unit="g/cm3" value="0.005485"/>
+    <D unit="kg/m3" value="5.485360"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Xe"/>
   </material>
   <material name="G4_Cs" state="solid">
@@ -1924,7 +1935,8 @@
   <material name="G4_Rn" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="794.000000"/>
-    <D unit="g/cm3" value="0.009007"/>
+    <D unit="kg/m3" value="9.006620"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="1.000000" ref="Rn"/>
   </material>
   <material name="G4_Fr" state="solid">
@@ -2021,7 +2033,8 @@
   <material name="G4_ACETYLENE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="58.200000"/>
-    <D unit="g/cm3" value="0.001097"/>
+    <D unit="kg/m3" value="1.096700"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.922577" ref="C"/>
     <fraction n="0.077423" ref="H"/>
   </material>
@@ -2048,7 +2061,8 @@
   <material name="G4_AIR" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="85.700000"/>
-    <D unit="g/cm3" value="0.001205"/>
+    <D unit="kg/m3" value="1.204790"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.000124" ref="C"/>
     <fraction n="0.755268" ref="N"/>
     <fraction n="0.231781" ref="O"/>
@@ -2081,7 +2095,8 @@
   <material name="G4_AMMONIA" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="53.700000"/>
-    <D unit="g/cm3" value="0.000826"/>
+    <D unit="kg/m3" value="0.826019"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.822448" ref="N"/>
     <fraction n="0.177552" ref="H"/>
   </material>
@@ -2229,7 +2244,8 @@
   <material name="G4_BUTANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="48.300000"/>
-    <D unit="g/cm3" value="0.002493"/>
+    <D unit="kg/m3" value="2.493430"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.826583" ref="C"/>
     <fraction n="0.173417" ref="H"/>
   </material>
@@ -2307,7 +2323,8 @@
   <material name="G4_CARBON_DIOXIDE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="85.000000"/>
-    <D unit="g/cm3" value="0.001842"/>
+    <D unit="kg/m3" value="1.842120"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.272912" ref="C"/>
     <fraction n="0.727088" ref="O"/>
   </material>
@@ -2459,7 +2476,8 @@
   <material name="G4_ETHANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="45.400000"/>
-    <D unit="g/cm3" value="0.001253"/>
+    <D unit="kg/m3" value="1.253240"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.798875" ref="C"/>
     <fraction n="0.201125" ref="H"/>
   </material>
@@ -2482,7 +2500,8 @@
   <material name="G4_ETHYLENE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="50.700000"/>
-    <D unit="g/cm3" value="0.001175"/>
+    <D unit="kg/m3" value="1.174970"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.856282" ref="C"/>
     <fraction n="0.143718" ref="H"/>
   </material>
@@ -2824,7 +2843,8 @@
   <material name="G4_METHANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="41.700000"/>
-    <D unit="g/cm3" value="0.000667"/>
+    <D unit="kg/m3" value="0.667151"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.748682" ref="C"/>
     <fraction n="0.251318" ref="H"/>
   </material>
@@ -2921,7 +2941,8 @@
   <material name="G4_NITROUS_OXIDE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="84.900000"/>
-    <D unit="g/cm3" value="0.001831"/>
+    <D unit="kg/m3" value="1.830940"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.636484" ref="N"/>
     <fraction n="0.363516" ref="O"/>
   </material>
@@ -3167,7 +3188,8 @@
   <material name="G4_PROPANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="47.100000"/>
-    <D unit="g/cm3" value="0.001879"/>
+    <D unit="kg/m3" value="1.879390"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.817136" ref="C"/>
     <fraction n="0.182864" ref="H"/>
   </material>
@@ -3372,7 +3394,8 @@
   <material name="G4_TISSUE-METHANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="61.200000"/>
-    <D unit="g/cm3" value="0.001064"/>
+    <D unit="kg/m3" value="1.064090"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.101869" ref="H"/>
     <fraction n="0.456179" ref="C"/>
     <fraction n="0.035172" ref="N"/>
@@ -3381,7 +3404,8 @@
   <material name="G4_TISSUE-PROPANE" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="59.500000"/>
-    <D unit="g/cm3" value="0.001826"/>
+    <D unit="kg/m3" value="1.826280"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.102672" ref="H"/>
     <fraction n="0.568940" ref="C"/>
     <fraction n="0.035022" ref="N"/>
@@ -3475,7 +3499,8 @@
   <material name="G4_WATER_VAPOR" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="71.600000"/>
-    <D unit="g/cm3" value="0.000756"/>
+    <D unit="kg/m3" value="0.756182"/>
+    <P unit="bar" value="1.013250"/>
     <fraction n="0.111898" ref="H"/>
     <fraction n="0.888102" ref="O"/>
   </material>
@@ -3545,7 +3570,8 @@
   <material name="G4_Galactic" state="gas">
     <T unit="K" value="2.730000"/>
     <MEE unit="eV" value="21.800000"/>
-    <D unit="g/cm3" value="0.000000"/>
+    <D unit="kg/m3" value="0.000000"/>
+    <P unit="bar" value="0.000000"/>
     <fraction n="1.000000" ref="H"/>
   </material>
   <material name="G4_GRAPHITE_POROUS" state="solid">
@@ -3720,5 +3746,29 @@
     <fraction n="0.432511" ref="C"/>
     <fraction n="0.252195" ref="N"/>
     <fraction n="0.288072" ref="O"/>
+  </material>
+  <material name="Isobutane" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="53.040479"/>
+    <D unit="kg/m3" value="2.510000"/>
+    <P unit="bar" value="1.013250"/>
+    <fraction n="0.826583" ref="C"/>
+    <fraction n="0.173417" ref="H"/>
+  </material>
+  <material name="GasMixture-Argon2.00%Isobutane-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="181.958979"/>
+    <D unit="kg/m3" value="2.319820"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Ar"/>
+    <fraction n="0.016532" ref="C"/>
+    <fraction n="0.003468" ref="H"/>
+  </material>
+  <material name="BC408" state="solid">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="64.730365"/>
+    <D unit="g/cm3" value="1.030000"/>
+    <fraction n="0.085000" ref="H"/>
+    <fraction n="0.915000" ref="C"/>
   </material>
 </materials>
