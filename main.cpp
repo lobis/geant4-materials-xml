@@ -35,11 +35,11 @@ void WriteMaterialsXML(const string &filename = "materials.xml") {
         }
 
         /* Element */
+        auto elementNode = xml.NewChild(materials, nullptr, "element");
+        xml.NewAttr(elementNode, nullptr, "name", elementName.c_str());
+
         for (int i = 0; i < element->GetNumberOfIsotopes(); i++) {
             auto isotope = element->GetIsotope(i);
-
-            auto elementNode = xml.NewChild(materials, nullptr, "element");
-            xml.NewAttr(elementNode, nullptr, "name", elementName.c_str());
 
             auto fractionNode = xml.NewChild(elementNode, nullptr, "fraction");
             xml.NewAttr(fractionNode, nullptr, "n", to_string(element->GetRelativeAbundanceVector()[i]).c_str());
@@ -75,7 +75,7 @@ void WriteMaterialsXML(const string &filename = "materials.xml") {
         xml.NewAttr(meeNode, nullptr, "unit", "eV");
         xml.NewAttr(meeNode, nullptr, "value", to_string(material->GetIonisation()->GetMeanExcitationEnergy() / CLHEP::eV).c_str());
 
-        auto densityNode = xml.NewChild(materialNode, nullptr, "T");
+        auto densityNode = xml.NewChild(materialNode, nullptr, "D");
         xml.NewAttr(densityNode, nullptr, "unit", "g/cm3");
         xml.NewAttr(densityNode, nullptr, "value", to_string(material->GetDensity() / CLHEP::gram * CLHEP::cm3).c_str());
 
