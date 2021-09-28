@@ -3755,6 +3755,15 @@
     <fraction n="0.826583" ref="C"/>
     <fraction n="0.173417" ref="H"/>
   </material>
+  <material name="TMA" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="55.474361"/>
+    <D unit="kg/m3" value="627.000000"/>
+    <P unit="bar" value="1.013250"/>
+    <fraction n="0.609574" ref="C"/>
+    <fraction n="0.153466" ref="H"/>
+    <fraction n="0.236959" ref="N"/>
+  </material>
   <material name="GasMixture-Argon2.00%Isobutane-1.4Bar" state="gas">
     <T unit="K" value="293.150000"/>
     <MEE unit="eV" value="181.958979"/>
@@ -3763,6 +3772,54 @@
     <fraction n="0.980000" ref="Ar"/>
     <fraction n="0.016532" ref="C"/>
     <fraction n="0.003468" ref="H"/>
+  </material>
+  <material name="GasMixture-Xenon2.00%Isobutane-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="452.910283"/>
+    <D unit="kg/m3" value="7.496861"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Xe"/>
+    <fraction n="0.016532" ref="C"/>
+    <fraction n="0.003468" ref="H"/>
+  </material>
+  <material name="GasMixture-Neon2.00%Isobutane-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="133.975618"/>
+    <D unit="kg/m3" value="1.204746"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Ne"/>
+    <fraction n="0.016532" ref="C"/>
+    <fraction n="0.003468" ref="H"/>
+  </material>
+  <material name="GasMixture-Argon2.00%TMA-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="182.263332"/>
+    <D unit="kg/m3" value="19.576884"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Ar"/>
+    <fraction n="0.012191" ref="C"/>
+    <fraction n="0.003069" ref="H"/>
+    <fraction n="0.004739" ref="N"/>
+  </material>
+  <material name="GasMixture-Xenon2.00%TMA-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="453.933502"/>
+    <D unit="kg/m3" value="24.753924"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Xe"/>
+    <fraction n="0.012191" ref="C"/>
+    <fraction n="0.003069" ref="H"/>
+    <fraction n="0.004739" ref="N"/>
+  </material>
+  <material name="GasMixture-Neon2.00%TMA-1.4Bar" state="gas">
+    <T unit="K" value="293.150000"/>
+    <MEE unit="eV" value="134.163681"/>
+    <D unit="kg/m3" value="18.461810"/>
+    <P unit="bar" value="1.400000"/>
+    <fraction n="0.980000" ref="Ne"/>
+    <fraction n="0.012191" ref="C"/>
+    <fraction n="0.003069" ref="H"/>
+    <fraction n="0.004739" ref="N"/>
   </material>
   <material name="BC408" state="solid">
     <T unit="K" value="293.150000"/>

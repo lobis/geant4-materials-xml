@@ -4,46 +4,58 @@
 /* ROOT */
 #include <TXMLEngine.h> /* https://root.cern/doc/master/group__tutorial__xml.html */
 
-#include <stdio.h>
+#include <cstdio>
+#include <iostream>
 
 using namespace std;
 
 void GenerateUserMaterials(vector<G4Material *> *container) {
     auto nistManager = G4NistManager::Instance();
 
-    // Compound materials
+    /* Gases */
+    // Quenchers
     auto isobutane = new G4Material("Isobutane", 2.51 * CLHEP::kg / CLHEP::m3, 2, G4State::kStateGas);
-    container->push_back(isobutane);
-
     isobutane->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("C"), 4);
     isobutane->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("H"), 10);
+    container->push_back(isobutane);
 
-    // Gas
+    auto tma = new G4Material("TMA", 627.0 * CLHEP::kg / CLHEP::m3, 3, G4State::kStateGas);
+    tma->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("C"), 3);
+    tma->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("H"), 9);
+    tma->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("N"), 1);
+    container->push_back(tma);
+
+    // Gas mixtures
     double gasMixturePressure = 1.4 * CLHEP::bar;
     double gasMixtureTemperature = NTP_Temperature;
     double gasMixtureQuencherFraction = 0.02;
 
-    auto gasMixtureTarget = new G4Material("ArgonTarget", (1.0 - gasMixtureQuencherFraction) * nistManager->FindOrBuildMaterial("G4_Ar")->GetDensity() * gasMixturePressure / CLHEP::STP_Pressure, 1,
-                                           nistManager->FindOrBuildMaterial("G4_Ar")->GetState(), gasMixtureTemperature, gasMixturePressure);
-    gasMixtureTarget->AddElementByMassFraction(nistManager->FindOrBuildElement("Ar"), 1.00);
+    for (const string &quencher : {"Isobutane", "TMA"}) {
+        auto quencherMaterial = nistManager->FindOrBuildMaterial(quencher);
+        for (const string &target : {"Argon", "Xenon", "Neon"}) {
+            G4Material *targetMaterial;
+            if (target == "Argon") {
+                targetMaterial = nistManager->FindOrBuildMaterial("G4_Ar");
+            } else if (target == "Xenon") {
+                targetMaterial = nistManager->FindOrBuildMaterial("G4_Xe");
+            } else if (target == "Neon") {
+                targetMaterial = nistManager->FindOrBuildMaterial("G4_Ne");
+            }
 
-    auto gasMixtureQuencher = new G4Material("IsobutaneQuencher", gasMixtureQuencherFraction * isobutane->GetDensity() * gasMixturePressure / CLHEP::STP_Pressure, 1, isobutane->GetState(),
-                                             gasMixtureTemperature, gasMixturePressure);
-    gasMixtureQuencher->AddMaterial(isobutane, 1.00);
+            auto gasMixture = new G4Material("GasMixture-" + target + "2.00%" + quencher + "-1.4Bar", (gasMixturePressure / CLHEP::STP_Pressure) * ((1.0 - gasMixtureQuencherFraction) * targetMaterial->GetDensity() + gasMixtureQuencherFraction * quencherMaterial->GetDensity()), 2, G4State::kStateGas, gasMixtureTemperature,
+                                             gasMixturePressure);
 
-    auto gasMixture = new G4Material("GasMixture-Argon2.00%Isobutane-1.4Bar", gasMixtureTarget->GetDensity() + gasMixtureQuencher->GetDensity(), 2, G4State::kStateGas, gasMixtureTemperature,
-                                     gasMixturePressure);
-    container->push_back(gasMixture);
+            gasMixture->AddMaterial(targetMaterial, 1.00 - gasMixtureQuencherFraction);
+            gasMixture->AddMaterial(quencherMaterial, gasMixtureQuencherFraction);
+            container->push_back(gasMixture);
+        }
+    }
 
-    gasMixture->AddMaterial(gasMixtureTarget, 1.00 - gasMixtureQuencherFraction);
-    gasMixture->AddMaterial(gasMixtureQuencher, gasMixtureQuencherFraction);
-
-    // Compound
+    // Other materials
     auto BC408 = new G4Material("BC408", 1.03 * CLHEP::gram / CLHEP::cm3, 2, kStateSolid);
-    container->push_back(BC408);
-
     BC408->AddMaterial(nistManager->FindOrBuildMaterial("G4_H"), 0.085000);
     BC408->AddMaterial(nistManager->FindOrBuildMaterial("G4_C"), 0.915000);
+    container->push_back(BC408);
 }
 
 void WriteMaterialsXML(const string &filename = "materials.xml", vector<G4Material *> *container = {}) {
@@ -91,16 +103,21 @@ void WriteMaterialsXML(const string &filename = "materials.xml", vector<G4Materi
     /* Materials */
     // Merge NIST materials with UserDefinedMaterials if they exist
     vector<string> materialNames;
+    cout << "Writing " + to_string(nistManager->GetNistMaterialNames().size()) + " NIST materials." << endl;
     for (const string &materialName : nistManager->GetNistMaterialNames()) { materialNames.push_back(materialName); }
-    for (const auto material : *container) {
-        const auto &name = material->GetName();
+    if (!container->empty()) {
+        cout << "Writing " + to_string(container->size()) + " User defined materials:" << endl;
+        for (const auto material : *container) {
+            const auto &name = material->GetName();
+            cout << "   " << name << endl;
 
-        if (std::find(materialNames.begin(), materialNames.end(), name) != materialNames.end()) {
-            cout << "ERROR: duplicate material '" << name << "'";
-            exit(1);
+            if (std::find(materialNames.begin(), materialNames.end(), name) != materialNames.end()) {
+                cout << "ERROR: duplicate material '" << name << "'";
+                exit(1);
+            }
+
+            materialNames.push_back(name);
         }
-
-        materialNames.push_back(name);
     }
 
     for (const auto &materialName : materialNames) {
