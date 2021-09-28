@@ -51,25 +51,49 @@ void GenerateUserMaterials(vector<G4Material*>* container) {
                 targetMaterial = nistManager->FindOrBuildMaterial("G4_Ne");
             }
 
-            auto gasMixture = new G4Material("GasMixture-" + target + "2.00%" + quencher + "-1.4Bar",
-                                             (gasMixturePressure / CLHEP::STP_Pressure) * ((1.0 - gasMixtureQuencherFraction) * targetMaterial->GetDensity() +
-                                                                                           gasMixtureQuencherFraction * quencherMaterial->GetDensity()),
-                                             2, G4State::kStateGas, gasMixtureTemperature, gasMixturePressure);
+            auto gasMixture = new G4Material(
+                    "GasMixture-" + target + string(SCIENTIFIC(gasMixtureQuencherFraction * 100)) + "%" + quencher + string(SCIENTIFIC(gasMixturePressure / CLHEP::bar)) + "Bar",
+                    (gasMixturePressure / CLHEP::STP_Pressure) *
+                            ((1.0 - gasMixtureQuencherFraction) * targetMaterial->GetDensity() + gasMixtureQuencherFraction * quencherMaterial->GetDensity()),
+                    2, G4State::kStateGas, gasMixtureTemperature, gasMixturePressure);
 
             gasMixture->AddMaterial(targetMaterial, 1.00 - gasMixtureQuencherFraction);
             gasMixture->AddMaterial(quencherMaterial, gasMixtureQuencherFraction);
             container->push_back(gasMixture);
         }
     }
-
-    // Other materials
+    // Vacuum (same as G4_Galactic)
+    auto vacuum = CopyMaterial("Vacuum", nistManager->FindOrBuildMaterial("G4_Galactic"));
+    container->push_back(vacuum);
+    // Scintillators
     auto BC408 = new G4Material("BC408", 1.03 * CLHEP::gram / CLHEP::cm3, 2, kStateSolid);
     BC408->AddMaterial(nistManager->FindOrBuildMaterial("G4_H"), 0.085000);
     BC408->AddMaterial(nistManager->FindOrBuildMaterial("G4_C"), 0.915000);
     container->push_back(BC408);
-    // Vacuum (same as G4_Galactic)
-    auto vacuum = CopyMaterial("Vacuum", nistManager->FindOrBuildMaterial("G4_Galactic"));
-    container->push_back(vacuum);
+    // Liquid Scintillator with additives
+    auto HC = new G4Material("HC", 1.00 * CLHEP::gram / CLHEP::cm3, 2, kStateLiquid);
+    HC->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("H"), 1);
+    HC->AddElementByNumberOfAtoms(nistManager->FindOrBuildElement("C"), 1);
+    container->push_back(HC);
+
+    const auto lead = nistManager->FindOrBuildMaterial("G4_Pb");
+    const auto cadmium = nistManager->FindOrBuildMaterial("G4_Cd");
+    for (const double fractionLead : {0.0, 0.01, 0.05, 0.10, 0.20, 0.50}) {
+        auto scintillatorWithLead = new G4Material("LiquidScintillator-HC+" + string(SCIENTIFIC(fractionLead * 100)) + "%Pb",
+                                                   HC->GetDensity() * (1 - fractionLead) + lead->GetDensity() * fractionLead, 2, kStateLiquid);
+        scintillatorWithLead->AddMaterial(HC, (1 - fractionLead));
+        scintillatorWithLead->AddMaterial(lead, fractionLead);
+        container->push_back(scintillatorWithLead);
+
+        const double fractionCadmium = 0.001;
+        auto scintillatorWithLeadAndCadmium = new G4Material(
+                "LiquidScintillator-HC+" + string(SCIENTIFIC(fractionLead * 100)) + "%Pb+" + string(SCIENTIFIC(fractionCadmium * 100)) + "%Cd",
+                HC->GetDensity() * (1 - fractionLead - fractionCadmium) + lead->GetDensity() * fractionLead + cadmium->GetDensity() * fractionCadmium, 3, kStateLiquid);
+        scintillatorWithLeadAndCadmium->AddMaterial(HC, (1 - fractionLead - fractionCadmium));
+        scintillatorWithLeadAndCadmium->AddMaterial(lead, fractionLead);
+        scintillatorWithLeadAndCadmium->AddMaterial(cadmium, fractionCadmium);
+        container->push_back(scintillatorWithLeadAndCadmium);
+    }
 }
 
 void WriteMaterialsXML(const string& filename = "materials.xml", vector<G4Material*>* container = {}) {

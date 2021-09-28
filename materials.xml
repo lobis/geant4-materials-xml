@@ -3764,7 +3764,7 @@
     <fraction n="0.153466" ref="H"/>
     <fraction n="0.236959" ref="N"/>
   </material>
-  <material name="GasMixture-Argon2.00%Isobutane-1.4Bar" state="gas">
+  <material name="GasMixture-Argon2%Isobutane1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="181.958979"/>
     <D unit="kg/m3" value="2.319820104"/>
@@ -3773,7 +3773,7 @@
     <fraction n="0.016532" ref="C"/>
     <fraction n="0.003468" ref="H"/>
   </material>
-  <material name="GasMixture-Xenon2.00%Isobutane-1.4Bar" state="gas">
+  <material name="GasMixture-Xenon2%Isobutane1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="452.9102826"/>
     <D unit="kg/m3" value="7.496860518"/>
@@ -3782,7 +3782,7 @@
     <fraction n="0.016532" ref="C"/>
     <fraction n="0.003468" ref="H"/>
   </material>
-  <material name="GasMixture-Neon2.00%Isobutane-1.4Bar" state="gas">
+  <material name="GasMixture-Neon2%Isobutane1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="133.9756177"/>
     <D unit="kg/m3" value="1.204745976"/>
@@ -3791,7 +3791,7 @@
     <fraction n="0.016532" ref="C"/>
     <fraction n="0.003468" ref="H"/>
   </material>
-  <material name="GasMixture-Argon2.00%TMA-1.4Bar" state="gas">
+  <material name="GasMixture-Argon2%TMA1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="182.2633317"/>
     <D unit="kg/m3" value="19.57688401"/>
@@ -3801,7 +3801,7 @@
     <fraction n="0.003069" ref="H"/>
     <fraction n="0.004739" ref="N"/>
   </material>
-  <material name="GasMixture-Xenon2.00%TMA-1.4Bar" state="gas">
+  <material name="GasMixture-Xenon2%TMA1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="453.9335021"/>
     <D unit="kg/m3" value="24.75392442"/>
@@ -3811,7 +3811,7 @@
     <fraction n="0.003069" ref="H"/>
     <fraction n="0.004739" ref="N"/>
   </material>
-  <material name="GasMixture-Neon2.00%TMA-1.4Bar" state="gas">
+  <material name="GasMixture-Neon2%TMA1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="134.1636811"/>
     <D unit="kg/m3" value="18.46180988"/>
@@ -3821,6 +3821,13 @@
     <fraction n="0.003069" ref="H"/>
     <fraction n="0.004739" ref="N"/>
   </material>
+  <material name="Vacuum" state="gas">
+    <T unit="K" value="2.73"/>
+    <MEE unit="eV" value="21.8"/>
+    <D unit="kg/m3" value="1e-22"/>
+    <P unit="bar" value="3e-23"/>
+    <fraction n="1.000000" ref="H"/>
+  </material>
   <material name="BC408" state="solid">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="64.7303653"/>
@@ -3828,11 +3835,113 @@
     <fraction n="0.085000" ref="H"/>
     <fraction n="0.915000" ref="C"/>
   </material>
-  <material name="Vacuum" state="gas">
-    <T unit="K" value="2.73"/>
-    <MEE unit="eV" value="21.8"/>
-    <D unit="kg/m3" value="1e-22"/>
-    <P unit="bar" value="3e-23"/>
-    <fraction n="1.000000" ref="H"/>
+  <material name="HC" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="65.94366018"/>
+    <D unit="g/cm3" value="1"/>
+    <fraction n="0.077423" ref="H"/>
+    <fraction n="0.922577" ref="C"/>
+  </material>
+  <material name="LiquidScintillator-HC+0%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="65.94366018"/>
+    <D unit="g/cm3" value="1"/>
+    <fraction n="0.077423" ref="H"/>
+    <fraction n="0.922577" ref="C"/>
+    <fraction n="0.000000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+0%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="66.04649864"/>
+    <D unit="g/cm3" value="1.00765"/>
+    <fraction n="0.077345" ref="H"/>
+    <fraction n="0.921655" ref="C"/>
+    <fraction n="0.000000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
+  </material>
+  <material name="LiquidScintillator-HC+1%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="67.18344273"/>
+    <D unit="g/cm3" value="1.1035"/>
+    <fraction n="0.076648" ref="H"/>
+    <fraction n="0.913352" ref="C"/>
+    <fraction n="0.010000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+1%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="67.28875101"/>
+    <D unit="g/cm3" value="1.11115"/>
+    <fraction n="0.076571" ref="H"/>
+    <fraction n="0.912429" ref="C"/>
+    <fraction n="0.010000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
+  </material>
+  <material name="LiquidScintillator-HC+5%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="72.45226395"/>
+    <D unit="g/cm3" value="1.5175"/>
+    <fraction n="0.073552" ref="H"/>
+    <fraction n="0.876448" ref="C"/>
+    <fraction n="0.050000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+5%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="72.56819084"/>
+    <D unit="g/cm3" value="1.52515"/>
+    <fraction n="0.073474" ref="H"/>
+    <fraction n="0.875526" ref="C"/>
+    <fraction n="0.050000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
+  </material>
+  <material name="LiquidScintillator-HC+10%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="79.806725"/>
+    <D unit="g/cm3" value="2.035"/>
+    <fraction n="0.069680" ref="H"/>
+    <fraction n="0.830320" ref="C"/>
+    <fraction n="0.100000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+10%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="79.93778704"/>
+    <D unit="g/cm3" value="2.04265"/>
+    <fraction n="0.069603" ref="H"/>
+    <fraction n="0.829397" ref="C"/>
+    <fraction n="0.100000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
+  </material>
+  <material name="LiquidScintillator-HC+20%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="97.61708083"/>
+    <D unit="g/cm3" value="3.07"/>
+    <fraction n="0.061938" ref="H"/>
+    <fraction n="0.738062" ref="C"/>
+    <fraction n="0.200000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+20%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="97.78614725"/>
+    <D unit="g/cm3" value="3.07765"/>
+    <fraction n="0.061861" ref="H"/>
+    <fraction n="0.737139" ref="C"/>
+    <fraction n="0.200000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
+  </material>
+  <material name="LiquidScintillator-HC+50%Pb" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="192.2738128"/>
+    <D unit="g/cm3" value="6.175"/>
+    <fraction n="0.038711" ref="H"/>
+    <fraction n="0.461289" ref="C"/>
+    <fraction n="0.500000" ref="Pb"/>
+  </material>
+  <material name="LiquidScintillator-HC+50%Pb+0.1%Cd" state="liquid">
+    <T unit="K" value="293.15"/>
+    <MEE unit="eV" value="192.6682234"/>
+    <D unit="g/cm3" value="6.18265"/>
+    <fraction n="0.038634" ref="H"/>
+    <fraction n="0.460366" ref="C"/>
+    <fraction n="0.500000" ref="Pb"/>
+    <fraction n="0.001000" ref="Cd"/>
   </material>
 </materials>
