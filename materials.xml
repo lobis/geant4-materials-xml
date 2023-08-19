@@ -3764,6 +3764,13 @@
     <fraction n="0.153466" ref="H"/>
     <fraction n="0.236959" ref="N"/>
   </material>
+  <material state="gas" name="GasMixture-XenonNeon2.3%Isobutane1.05Bar">
+    <D value="3.524116" unit="kg/m3"/>
+    <fraction n="0.4885" ref="Xe"/>
+    <fraction n="0.4885" ref="Ne"/>
+    <fraction n="0.019012" ref="C"/>
+    <fraction n="0.003988" ref="H"/>
+  </material>
   <material name="GasMixture-Argon2%Isobutane1.4Bar" state="gas">
     <T unit="K" value="293.15"/>
     <MEE unit="eV" value="181.958979"/>
